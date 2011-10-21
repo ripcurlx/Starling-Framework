@@ -99,7 +99,7 @@ package starling.display
                 mChildren.splice(index, 0, child);
                 child.setParent(this);                
                 child.dispatchEvent(new Event(Event.ADDED, true));                
-                if (stage) child.dispatchEventOnChildren(new Event(Event.ADDED_TO_STAGE, true));
+                if (stage) child.dispatchEventOnChildren(new Event(Event.ADDED_TO_STAGE));
             }
             else
             {
@@ -122,8 +122,8 @@ package starling.display
             if (index >= 0 && index < numChildren)
             {
                 var child:DisplayObject = mChildren[index];
-                child.dispatchEvent(new Event(Event.REMOVED, true));
-                if (stage) child.dispatchEventOnChildren(new Event(Event.REMOVED_FROM_STAGE, true));
+                child.dispatchEvent(new Event(Event.REMOVED));
+                if (stage) child.dispatchEventOnChildren(new Event(Event.REMOVED_FROM_STAGE));
                 child.setParent(null);
                 mChildren.splice(index, 1);
                 if (dispose) child.dispose();
